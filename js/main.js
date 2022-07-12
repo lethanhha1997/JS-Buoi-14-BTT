@@ -214,31 +214,31 @@ function readNumber() {
         unit = Math.floor(number % 10);
         switch (hundred) {
             case 1:
-               readN= "Một"
+               readN= "Một Trăm "
                 break;
             case 2:
-                readN= "Hai"
+                readN= "Hai Trăm "
                 break;
             case 3:
-                readN= "Ba"
+                readN= "Ba Trăm "
                 break;
             case 4:
-                readN= "Bốn"
+                readN= "Bốn Trăm "
                 break;
             case 5:
-                readN= "Năm"
+                readN= "Năm Trăm "
                 break;
             case 6:
-                readN= "Sáu"
+                readN= "Sáu Trăm "
                 break;
             case 7:
-                readN= "Bảy"
+                readN= "Bảy Trăm "
                 break;
             case 8:
-                readN="Tám"
+                readN= "Tám Trăm "
                 break;
             case 9:
-                readN= "Chín"
+                readN= "Chín Trăm "
                 break;
 
             default:
@@ -246,32 +246,35 @@ function readNumber() {
                 break;
         }
         switch (ten) {
+            case 0:
+                readC = "Lẽ"
+                break;
             case 1:
-               readC= "Một"
+               readC= "Một Mươi"
                 break;
             case 2:
-                readC= "Hai"
+                readC= "Hai Mươi"
                 break;
             case 3:
-                readC= "Ba"
+                readC= "Ba Mươi"
                 break;
             case 4:
-                readC= "Bốn"
+                readC= "Bốn Mươi"
                 break;
             case 5:
-                readC= "Năm"
+                readC= "Năm Mươi"
                 break;
             case 6:
-                readC= "Sáu"
+                readC= "Sáu Mươi"
                 break;
             case 7:
-                readC= "Bảy"
+                readC= "Bảy Mươi"
                 break;
             case 8:
-                readC="Tám"
+                readC="Tám Mươi"
                 break;
             case 9:
-                readC= "Chín"
+                readC= "Chín Mươi"
                 break;
 
             default:
@@ -279,38 +282,41 @@ function readNumber() {
                 break;
         }
         switch (unit) {
+            case 0: 
+                readDV = ""
+                break;
             case 1:
-               readDV = "Một"
+               readDV = " Một"
                 break;
             case 2:
-                readDV = "Hai"
+                readDV = " Hai"
                 break;
             case 3:
-                readDV = "Ba"
+                readDV = " Ba"
                 break;
             case 4:
-                readDV = "Bốn"
+                readDV = " Bốn"
                 break;
             case 5:
-                readDV = "Năm"
+                readDV = " Năm"
                 break;
             case 6:
-                readDV = "Sáu"
+                readDV = " Sáu"
                 break;
             case 7:
-                readDV = "Bảy"
+                readDV = " Bảy"
                 break;
             case 8:
-                readDV ="Tám"
+                readDV =" Tám"
                 break;
             case 9:
-                readDV = "Chín"
+                readDV = " Chín"
                 break;
             default:
                 readDV = "Sai"
                 break;
         }
-        read = readN + " Trăm " + readc + " Mươi " + readDV;
+        read = readN + readC  + readDV;
 
     } else {
         read = "Nhập sai số vui lòng nhập lại";
