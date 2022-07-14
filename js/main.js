@@ -7,16 +7,13 @@ function yesterday() {
     var month = parseInt(document.getElementById("month").value);
     var year = parseInt(document.getElementById("year").value);
     var n;
-    if (day <= 0) {
+    if (day <= 0 && day > 31) {
         n = "Không xác định được";
     }
     else {
         switch (month) {
             case 1:
-                if (day > 31) {
-                    n = "Không xác định được";
-                }
-                else if (day == 1) {
+                if (day == 1) {
                     n = 31 + "/" + 12 + "/" + --year;
                 }
                 else {
@@ -44,7 +41,7 @@ function yesterday() {
             case 6:
             case 9:
             case 11:
-                if (day > 31) {
+                if (day > 30) {
                     n = "Không xác định được";
                 }
                 else if (day == 1) {
@@ -55,10 +52,7 @@ function yesterday() {
                 }
                 break
             case 3:
-                if (day > 28) {
-                    n = "Không xác định được";
-                }
-                else if (day == 1) {
+                if (day == 1) {
                     n = 28 + "/" + --month + "/" + year;
                 }
                 else {
@@ -80,7 +74,7 @@ function tomorrowDays() {
     var month = parseInt(document.getElementById("month").value);
     var year = parseInt(document.getElementById("year").value);
     var n;
-    if (day <= 0) {
+    if (day <= 0 && day > 31) {
         n = "Không xác định được";
     }
     else {
@@ -91,17 +85,11 @@ function tomorrowDays() {
             case 7:
             case 8:
             case 10:
-                if (day > 31) {
-                    n = "ko xác định được";
-                    console.log("a")
-                }
-                else if (day == 31) {
+               if (day == 31) {
                     n = 1 + "/" + ++month + "/" + year;
-                    console.log("b")
                 }
                 else {
                     n = ++day + "/" + month + "/" + year;
-                    console.log("c")
                 }
                 console.log(4)
                 break
@@ -116,7 +104,6 @@ function tomorrowDays() {
                 else {
                     n = ++day + "/" + month + "/" + year;
                 }
-                console.log(3)
                 break
             case 4:
             case 6:
@@ -134,10 +121,7 @@ function tomorrowDays() {
                 console.log(2)
                 break
             case 12:
-                if (day > 31) {
-                    n = "Không xác định được";
-                }
-                else if (day == 31) {
+               if (day == 31) {
                     n = 1 + "/" + 1 + "/" + ++year;
                 }
                 else {
@@ -146,7 +130,7 @@ function tomorrowDays() {
                 console.log(1)
                 break;
             default:
-                n = "Ko xác định được";
+                     n = "Ko xác định được";
                 break;
         }
 
@@ -197,135 +181,90 @@ document.getElementById("findDay").onclick = findDay;
 
 //B3
 
-function readNumber() {
-    var number = Number(document.getElementById("number").value);
-    var read;
-    var readN;
-    var readC;
-    var readDV;
-    var hundred;
-    var ten;
-    var unit;
+function cvNumString(number){
+    switch (number) {
+        case 1:
+            return " Một ";
 
+        case 2:
+            return " Hai ";
 
-    if (number > 99 && number < 1000) {
-        hundred = Math.floor(number /100);
-        ten = Math.floor(number % 100/10);
-        unit = Math.floor(number % 10);
-        switch (hundred) {
-            case 1:
-               readN= "Một Trăm "
-                break;
-            case 2:
-                readN= "Hai Trăm "
-                break;
-            case 3:
-                readN= "Ba Trăm "
-                break;
-            case 4:
-                readN= "Bốn Trăm "
-                break;
-            case 5:
-                readN= "Năm Trăm "
-                break;
-            case 6:
-                readN= "Sáu Trăm "
-                break;
-            case 7:
-                readN= "Bảy Trăm "
-                break;
-            case 8:
-                readN= "Tám Trăm "
-                break;
-            case 9:
-                readN= "Chín Trăm "
-                break;
+        case 3:
+            return " Ba ";
 
-            default:
-                readN = "Sai"
-                break;
+        case 4:
+            return " Bốn ";
+
+        case 5:
+            return " Năm ";
+
+        case 6:
+            return " Sáu ";
+
+        case 7:
+            return " Bảy ";
+
+        case 8:
+            return " Tám ";
+
+        case 9:
+            return " Chín ";
+    
+        default:
+            return "";
+    }
+}
+function readNumber(hundred,ten,unit){
+    number = Number(document.getElementById("number").value);
+    var hundred = Math.floor(number /100);
+    var ten = Math.floor(number % 100/10);
+    var unit = Math.floor(number % 10);
+    read = "";  
+    if(number > 99 && number < 1000){
+        if(ten == 0){
+            read = cvNumString(hundred)+ " Trăm" + cvNumString(ten) + " Lẽ" + cvNumString(unit);
+        }else{
+            read = cvNumString(hundred)+ " Trăm" + cvNumString(ten) + " Mươi" + cvNumString(unit);
         }
-        switch (ten) {
-            case 0:
-                readC = "Lẽ"
-                break;
-            case 1:
-               readC= "Một Mươi"
-                break;
-            case 2:
-                readC= "Hai Mươi"
-                break;
-            case 3:
-                readC= "Ba Mươi"
-                break;
-            case 4:
-                readC= "Bốn Mươi"
-                break;
-            case 5:
-                readC= "Năm Mươi"
-                break;
-            case 6:
-                readC= "Sáu Mươi"
-                break;
-            case 7:
-                readC= "Bảy Mươi"
-                break;
-            case 8:
-                readC="Tám Mươi"
-                break;
-            case 9:
-                readC= "Chín Mươi"
-                break;
-
-            default:
-                readC = "Sai"
-                break;
-        }
-        switch (unit) {
-            case 0: 
-                readDV = ""
-                break;
-            case 1:
-               readDV = " Một"
-                break;
-            case 2:
-                readDV = " Hai"
-                break;
-            case 3:
-                readDV = " Ba"
-                break;
-            case 4:
-                readDV = " Bốn"
-                break;
-            case 5:
-                readDV = " Năm"
-                break;
-            case 6:
-                readDV = " Sáu"
-                break;
-            case 7:
-                readDV = " Bảy"
-                break;
-            case 8:
-                readDV =" Tám"
-                break;
-            case 9:
-                readDV = " Chín"
-                break;
-            default:
-                readDV = "Sai"
-                break;
-        }
-        read = readN + readC  + readDV;
-
-    } else {
-        read = "Nhập sai số vui lòng nhập lại";
+        
+    }else{
+        read = "Không xác định được";
     }
     document.getElementById("textb3").innerHTML = read;
 }
 document.getElementById("readNumber").onclick = readNumber;
 
-
-
-
 //B4
+
+function findStudent(){
+    var nameSv1 = document.getElementById("text1").value;
+    var xSv1 = Number(document.getElementById("x1").value);
+    var ySv1 = Number(document.getElementById("y1").value);
+    var nameSv2 = document.getElementById("text2").value;
+    var xSv2 = Number(document.getElementById("x2").value);
+    var ySv2 = Number(document.getElementById("y2").value);
+    var nameSv3 = document.getElementById("text3").value;
+    var xSv3 = Number(document.getElementById("x3").value);
+    var ySv3 = Number(document.getElementById("y3").value);
+
+    var xSchool = Number(document.getElementById("x0").value);
+    var ySchool = Number(document.getElementById("y0").value);
+
+    var kcsv1 = Math.sqrt((xSv1-xSchool)*(xSv1-xSchool)+(ySv1-ySchool)*(ySv1-ySchool));
+    var kcsv2 = Math.sqrt((xSv2-xSchool)*(xSv2-xSchool)+(ySv2-ySchool)*(ySv2-ySchool));
+    var kcsv3 = Math.sqrt((xSv3-xSchool)*(xSv3-xSchool)+(ySv3-ySchool)*(ySv3-ySchool));
+
+   var max;
+   if(kcsv1 > kcsv2 && kcsv1 > kcsv3){
+        max = "Sinh viên ra trường nhất: " + nameSv1;
+   }
+   else if(kcsv2 > kcsv1 && kcsv2 > kcsv3){
+        max = "Sinh viên ra trường nhất: " + nameSv2;
+   }
+   else{
+        max = "Sinh viên ra trường nhất: " + nameSv3;
+   }
+   document.getElementById("textb4").innerHTML = max;
+
+}
+document.getElementById("findMax").onclick = findStudent;
