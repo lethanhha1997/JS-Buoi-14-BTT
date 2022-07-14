@@ -1,6 +1,27 @@
 
+//!Mô hình có ở file txt
+
+
 
 //B1
+/**
+ * B1 input: day , month year
+ * 
+ * B2 
+ * ?giảm ngày
+ * nếu thuộc tháng  5 7 8 10 12 mà rơi vào ngày 1 thì in ra ngày 31 và giảm tháng xún 1 
+ * nếu thuộc ngày 1 tháng 1 thì in ra ngày 31 tháng 12 giảm năm xún
+ * nếu thuộc tháng 2 4 6 9 11 mà rơi vào ngày 1 thì in ra ngày 30 và giảm tháng xún 1 
+ * nếu thuộc tháng 3 mà rơi vào ngày 1 thì in ra ngày 28 và giảm tháng xún 1 
+ * 
+ *  ?tăng ngày:
+ * nếu thuộc tháng 1 3 5 7 8 10 mà rơi vào ngày 31 thì in ra ngày 1 và tăng tháng lên 1 
+ * nếu thuộc ngày 31 tháng 12 thì in ra ngày 1 tháng 1 tăng năm lên
+ * nếu thuộc tháng  4 6 9 11 mà rơi vào ngày 30 thì in ra ngày 1 và tăng tháng lên 1 
+ * nếu thuộc tháng 2 mà ngày 28 thì tằng tháng lên 1 và in ra
+ * 
+ * B3 in kq ra
+ */
 
 function yesterday() {
     var day = parseInt(document.getElementById("day").value);
@@ -141,7 +162,17 @@ function tomorrowDays() {
 document.getElementById("less").onclick = tomorrowDays;
 
 // b2
-
+//B1
+/**
+ * B1 input: tháng ,năm
+ * 
+ * B2
+ * nếu rơi vào tháng 1 3 5 7 8 10 12 thì in ra tháng có 31 ngày
+ * nếu rơi vào tháng 4 6 9 11 thì in ra tháng có 30 ngày
+ * nếu rơi vào tháng 2 thì kiểm tra năm có nhuần ko. nếu nhuần thì 29 ko nhuần 28
+ * 
+ * B3 in kq ra
+ */
 
 function findDay() {
     var month = parseInt(document.getElementById("month2").value);
@@ -180,6 +211,17 @@ function findDay() {
 document.getElementById("findDay").onclick = findDay;
 
 //B3
+//B1
+/**
+ * B1 input: số 3 có 3 số
+ * 
+ * B2
+ * chuyển số sang chữ
+ * tách số tháng số hàng chục hàng trăm hàng đơn vị
+ * nối chuỗi theo số tách bằng chữ
+ * 
+ * B3 in kq ra
+ */
 
 function cvNumString(number){
     switch (number) {
@@ -235,6 +277,19 @@ function readNumber(hundred,ten,unit){
 document.getElementById("readNumber").onclick = readNumber;
 
 //B4
+//B1
+/**
+ * B1 input: tọa độ sv1, sv2, sv3, trường, tên sv
+ * 
+ * B2
+ * tính xem tọa độ mỗi sv đến trường là bn rồi so sanh vs nhau
+ * nếu sv1 lớn nhất thì in sv 1
+ * nếu sv2 lớn nhất thì in sv 2
+ * nếu sv3 lớn nhất thì in sv 3
+ * 
+ * 
+ * B3 in kq ra
+ */
 
 function findStudent(){
     var nameSv1 = document.getElementById("text1").value;
